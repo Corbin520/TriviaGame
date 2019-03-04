@@ -1,61 +1,71 @@
-// create your variables,
-var time = 45;
 
-// create an array of trivia questions.
+// Trivia Question
 var questions = {
-    Q1: "how many golf clubs can you carry in a pga tour?"; // question 1
-    Q2: "What color of jacket do you get if you win the masters?"; // question 2
-    Q3: "Can you change the brand or type of golf ball midway through a pro tournament?"; // question 3
-    Q4: "How many holes are in a full round of golf?"; // question 4
-    Q5: "What year was golf invented?"; // question 5
-    Q6: "What is it called if the hole calls for a 4 and you shot a 4, what is it called?";// question 6
-    Q7: "Which of the following is not a professional golfer?";// question 7
-    Q8: "How old is Phil Mickelson?";// question 8
-};
+    Q1: "how many golf clubs can you carry in a pga tour?",
+    Q2: "What color of jacket do you get if you win the masters?",
+    Q3: "Can you change the brand or type of golf ball midway through a pro tournament?",
+    Q4: "How many holes are in a full round of golf?",
+    Q5: "What year was golf invented?", 
+    Q6: "What is it called if the hole calls for a 4 and you shot a 4, what is it called?",
+    Q7: "Which of the following is not a professional golfer?",
+    Q8: "How old is Phil Mickelson?",
+    };
 
 // Options the user can choose from
-var options = {
-    ["13", "11", "15", "14"]; // options for question 1
-    ["Blue", "Green", "Yellow", "black"]; // options for question 2
-    ["Yes", "No"]; // options for question 3 
-    ["16", "19", "18", "20"]; // options for question 4
-    ["1457", "1557", "1357", "None of the answers"]; // options for question 5
-    ["Eagle", "Par", "Bogey"]; // options ffor question 6
-    ["Tiger Woods", "Jordan Spieth", "Danny Ainge", "Ben Hogan"]; // options for questions 7
-    ["47", "49", "48", "50"]; // options for question 8
-}
+    options = {
+    Q1: ["13", "11", "15", "14"],
+    Q2: ["Blue", "Green", "Yellow", "black"], 
+    Q3: ["Yes", "No"], 
+    Q4: ["16", "19", "18", "20"], 
+    Q5: ["1457", "1557", "1357", "None of the answers"], 
+    Q6: ["Eagle", "Par", "Bogey"], 
+    Q7: ["Tiger Woods", "Jordan Spieth", "Danny Ainge", "Ben Hogan"], 
+    Q8: ["47", "49", "48", "50"], 
+    };
 
 // Answers to the questions
-var answers = [
-    "14"; // question 1 answer
-    "Green"; // question 2 answer
-    "No"; // question 3 answer
-    "18"; // question 4 answer
-    "1457"; // question 5 answer
-    "Par"; // question 6 answer
-    "Danny Ainge" // question 7 answer
-    "48" // question 8 answer
-;
+    answers = {
+    Q1: "14", 
+    Q2: "Green",
+    Q3: "No",
+    Q4: "18",
+    Q5: "1457",
+    Q6: "Par",
+    Q7: "Danny Ainge",
+    Q8: "48",
+    };
+
+// create your variables,
+var time = 45;
+var countDown;
+var intervalId;
+
 
 // call your ID's from HTML
 var timeText = document.getElementById("time-remaining");
-var resultText = docutment.getElementById("results");
+var resultText = document.getElementById("results");
 var correctAnsText = document.getElementById("correct-answers");
 var incorrectAnsText = document.getElementById("incorrect-answers");
 var unanswered = document.getElementById("un-answered");
+var start = document.getElementById("startButton")
 
-// create a timer that counts down to 0
-// change to 1000 * 45 when your done
-setTimeout(timeRemaining, 1000 * 5);
+           
 
-//defind a function timeRemaining() to store what we want it todo
-function timeRemaining() {
+// function starts the clock
+function clockStart() {
+    // make the clock decrement by 1 second (45-0)
+    intervalId = setInterval(decrement, 1000);
+}
+
+// function the decrements the time
+function decrement() {
+    // make the time variable -1
     time--;
-
+    // display the time in the browser
+    $("#time-remaining").html("00:" + time);
+    console.log(time);
 }
 
 
-
-
-
-// lossesText.text("Losses: " + losses) same as above but with jquer
+// Start the game
+clockStart();
