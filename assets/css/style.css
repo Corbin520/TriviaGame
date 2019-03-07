@@ -1,3 +1,53 @@
 
 body {
+    background-image: url("../images/cement-dark-gray.jpg");
+    height: 900px;
+}
+
+.heading {
+    position: relative;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Acme', sans-serif;
+    font-size: 80px;
+    color: black;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#golf-head-img {
+    width: 100%;
+    height: 325px;
+    border-radius: 15px;
+    border: solid 2px;
+    border-bottom: solid 5px black;
+    margin-bottom: 20px;
+}
+
+.start-container {
+    position: relative;
+    text-align: center;
+}
+
+#start-background-img {
+    width: 240px;
+    height: 220px;
+    border-radius: 15px;
+    border: solid 2px;
+    border-bottom: solid 5px black;
+}
+
+#startButton {
+    font-size: 75px;
+    font-family: 'Gloria Hallelujah', cursive;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 75px;
+    
 }
