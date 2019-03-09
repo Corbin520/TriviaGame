@@ -47,7 +47,7 @@ var triviaQuestions = [
 ]
 
 // create your variables,
-var time = 45;
+var time = 5;
 var timeEnd = 0;
 var countDown;
 var intervalId;
@@ -73,6 +73,10 @@ function clockStart() {
     intervalId = setInterval(decrement, 1000);
 }
 
+function clockStop() {
+    intervalId = clearInterval();
+}
+
 // function the decrements the time
 function decrement() {
     // make the time variable -1
@@ -88,6 +92,8 @@ $("#startButton").on("click", function() {
     $(".stop-container").show();
     clockStart();
 });
+
+
 
 
 
@@ -120,8 +126,18 @@ function displayQuestions() {
                 console.log(triviaQuestions[i].options[j])
 
                 // add a button for each answer option while keeping the answer in the same div as the question.
-                var radio = $('<input type="radio" name="question-' + i +'" value="' + triviaQuestions[i].options[j] +'"> ' + triviaQuestions[i].options[j]+ '<br>')
+                var radio = $('<input>');
+                radio.attr('type', "radio");
+                radio.attr('name', "question-" + i ); 
+                radio.attr('value', triviaQuestions[i].options[j]) 
+                // radio.text(triviaQuestions[i].options[j]);
+
+                // var label = $()
+                
+
+
                 div.append(radio)
+                div.append(triviaQuestions[i].options[j] + "<br/>")
 
                 questionsDiv.append(div)
             }
@@ -140,7 +156,10 @@ function displayQuestions() {
 
     // listen for done button to bee clicked, then run this function.
     $("#doneButton").on("click", function() {
-
+        $(".questions").hide();
+        $(".stop-container").hide();
+        $("#incorrect-answers").show();
+        $("#correct-answers").show();
         
         // loop over our array one object at a time
         for (var i = 0; i < triviaQuestions.length; i++) {
@@ -175,10 +194,12 @@ function displayQuestions() {
             if (userChoice == triviaQuestions[i].options[answer]) {
                 console.log("correct");
                 correctAnswers++;
+                correctAnsText.textContent = "Correct Answers: " + correctAnswers;
 
             } else {
                 console.log("incorrect");
                 incorrectAnswers++;
+                incorrectAnsText.textContent = "Incorrect Answers: " + incorrectAnswers; 
             }
                 
 
@@ -190,6 +211,7 @@ function displayQuestions() {
         // This will display the users score at the end of the game either when the done button is clicked, 
         // OR when the time runs out
 
+        
     
     
 

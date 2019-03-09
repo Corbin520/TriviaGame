@@ -2,6 +2,7 @@
 body {
     background-image: url("../images/cement-dark-gray.jpg");
     height: 900px;
+    
 }
 
 .heading {
@@ -92,4 +93,11 @@ h2 {
     width: 250px;
     height: 75px;
     
+}
+
+#correct-answers, #incorrect-answers {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 65px;
+    text-align: center;
+    display: none;
 }
