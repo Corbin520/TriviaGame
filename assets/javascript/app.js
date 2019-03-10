@@ -169,7 +169,7 @@ function displayQuestions() {
             // get the value of the button that is clicked and store it in a variable to call on later
             // hint * you want the value of the clicked button ( google is a friend) . val
 
-            // we are just storing the useres Input in the userChoice
+            // we are just storing the useres Input in the userChoice.
             var userChoice = $("input[name=question-" + i + "]:checked").val();
 
 
