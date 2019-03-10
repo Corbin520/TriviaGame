@@ -1,4 +1,5 @@
 
+$(document).ready(function() {
 // Trivia Questions
 var triviaQuestions = [
 
@@ -44,7 +45,7 @@ var triviaQuestions = [
     },
 ]
 
-var time = 45;
+var time = 60;
 var countDown;
 var intervalId;
 var correctAnswers = 0;
@@ -186,6 +187,8 @@ function gameOver() {
 
 // calling game over function
 gameOver();
+
+})
 
 
 
